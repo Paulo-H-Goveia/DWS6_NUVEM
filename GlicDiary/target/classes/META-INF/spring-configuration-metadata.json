@@ -1,0 +1,28 @@
+{
+  "groups": [
+    {
+      "name": "glicdiary",
+      "type": "br.edu.ifsp.arq.prss6.glicdiary.config.property.GlicDiaryApiProperty",
+      "sourceType": "br.edu.ifsp.arq.prss6.glicdiary.config.property.GlicDiaryApiProperty"
+    },
+    {
+      "name": "glicdiary.security",
+      "type": "br.edu.ifsp.arq.prss6.glicdiary.config.property.GlicDiaryApiProperty$Security",
+      "sourceType": "br.edu.ifsp.arq.prss6.glicdiary.config.property.GlicDiaryApiProperty",
+      "sourceMethod": "public br.edu.ifsp.arq.prss6.glicdiary.config.property.GlicDiaryApiProperty.Security getSecurity() "
+    }
+  ],
+  "properties": [
+    {
+      "name": "glicdiary.origin-allowed",
+      "type": "java.lang.String",
+      "sourceType": "br.edu.ifsp.arq.prss6.glicdiary.config.property.GlicDiaryApiProperty"
+    },
+    {
+      "name": "glicdiary.security.enable-https",
+      "type": "java.lang.Boolean",
+      "sourceType": "br.edu.ifsp.arq.prss6.glicdiary.config.property.GlicDiaryApiProperty$Security"
+    }
+  ],
+  "hints": []
+}

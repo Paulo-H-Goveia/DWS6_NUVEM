@@ -10,13 +10,19 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.ifsp.arq.prss6.glicdiary.config.property.GlicDiaryApiProperty;
+
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFilter implements Filter {
+	
+	@Autowired
+	 private GlicDiaryApiProperty GlicDiaryApiProperty;
 
 	private String originPermitida = "http://localhost:4200"; // TODO: Configurar para diferentes ambientes
 	
@@ -27,11 +33,11 @@ public class CorsFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
 		
-		response.setHeader("Access-Control-Allow-Origin", originPermitida);
+		response.setHeader("Access-Control-Allow-Origin", GlicDiaryApiProperty.getOriginAllowed());
         	response.setHeader("Access-Control-Allow-Credentials", "true");
 		
 		if ("OPTIONS".equals(request.getMethod()) && 
-				originPermitida.equals(request.getHeader("Origin"))) {
+				GlicDiaryApiProperty.getOriginAllowed().equals(request.getHeader("Origin"))) {
 			response.setHeader("Access-Control-Allow-Methods", "POST, "
 					+ "GET, DELETE, PUT, OPTIONS");
         		response.setHeader("Access-Control-Allow-Headers", "Authorization, "
